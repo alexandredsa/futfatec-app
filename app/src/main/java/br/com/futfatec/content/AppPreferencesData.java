@@ -5,7 +5,10 @@ import android.content.SharedPreferences;
 
 import com.google.gson.Gson;
 
-import br.com.futfatec.model.Tabela;
+import java.util.List;
+
+import br.com.futfatec.model.classificacao.Tabela;
+import br.com.futfatec.model.rodada.Rodada;
 
 /**
  * Created by alexa on 27/05/2016.
@@ -13,6 +16,7 @@ import br.com.futfatec.model.Tabela;
 public class AppPreferencesData {
     public static final String PREFS_NAME = "FutFatecAppData";
     public static final String PREFS_KEY_CLASSIFICACAO = "classificacaoData";
+    private static final String PREFS_KEY_JOGOS = "jogosData";
     private Gson gson;
     private Context mContext;
     private SharedPreferences prefs;
@@ -36,5 +40,14 @@ public class AppPreferencesData {
         SharedPreferences.Editor editor = prefs.edit();
         editor.putString(key, gson.toJson(obj));
         editor.commit();
+    }
+
+    public String getTabelaId(){
+        Tabela tabela = retrieveClassificacao();
+        return tabela.getId();
+    }
+
+    public void storeJogos(List<Rodada> jogos) {
+        storeObject(PREFS_KEY_JOGOS, jogos);
     }
 }

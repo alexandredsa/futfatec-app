@@ -14,21 +14,14 @@ import android.widget.Toast;
 import br.com.futfatec.R;
 import br.com.futfatec.adapter.TabelaGrupoViewAdapter;
 import br.com.futfatec.exception.HttpRestException;
-import br.com.futfatec.model.Tabela;
+import br.com.futfatec.model.classificacao.Tabela;
 import br.com.futfatec.rest.AbstractRestService;
 import br.com.futfatec.rest.classificacao.ClassificacaoRestService;
 
 
 public class ClassificacaoFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
     private static final String TAG = "ClassificacaoFragment";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
     private ClassificacaoRestService classificacaoRestService;
     private RecyclerView mTabelaRecyclerView;
     private RecyclerView.LayoutManager mTabelaLayoutManager;
@@ -36,14 +29,11 @@ public class ClassificacaoFragment extends Fragment {
     private ProgressBar progressBar;
 
     public ClassificacaoFragment() {
-        // Required empty public constructor
     }
 
     public static ClassificacaoFragment newInstance() {
         ClassificacaoFragment fragment = new ClassificacaoFragment();
         Bundle args = new Bundle();
-       /* args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);*/
         fragment.setArguments(args);
         return fragment;
     }
@@ -53,8 +43,6 @@ public class ClassificacaoFragment extends Fragment {
         super.onCreate(savedInstanceState);
         classificacaoRestService = new ClassificacaoRestService(getActivity());
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
     }

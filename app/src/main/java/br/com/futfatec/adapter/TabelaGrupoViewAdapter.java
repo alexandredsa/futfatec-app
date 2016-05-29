@@ -10,9 +10,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import br.com.futfatec.R;
-import br.com.futfatec.model.Grupo;
-import br.com.futfatec.model.Tabela;
-import br.com.futfatec.model.Time;
+import br.com.futfatec.model.classificacao.Grupo;
+import br.com.futfatec.model.classificacao.Tabela;
+import br.com.futfatec.model.classificacao.Time;
 
 /**
  * Created by alexa on 28/05/2016.

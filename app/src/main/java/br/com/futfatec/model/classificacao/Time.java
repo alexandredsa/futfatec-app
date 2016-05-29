@@ -1,4 +1,4 @@
-package br.com.futfatec.model;
+package br.com.futfatec.model.classificacao;
 
 public class Time implements Comparable<Time> {
 	private String nome;

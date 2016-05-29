@@ -4,7 +4,7 @@ import android.content.Context;
 
 import br.com.futfatec.content.AppPreferencesData;
 import br.com.futfatec.exception.HttpRestException;
-import br.com.futfatec.model.Tabela;
+import br.com.futfatec.model.classificacao.Tabela;
 import br.com.futfatec.rest.AbstractRestService;
 import retrofit.Call;
 import retrofit.Callback;

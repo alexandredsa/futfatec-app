@@ -17,6 +17,7 @@ import retrofit.Retrofit;
 public class AbstractRestService {
 
     private static final String BASE_URL = "http://192.168.1.42:8088/";
+//    private static final String BASE_URL = "http://www.mocky.io/v2/";
     private Retrofit retrofit;
 
 
