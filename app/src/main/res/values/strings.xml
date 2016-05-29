@@ -5,8 +5,12 @@
     <string name="menu_item_rodada">Jogos</string>
     <string name="format_text_grupo">Grupo %s</string>
     <string name="format_text_time_posicao">%sº</string>
+    <string name="format_text_artilharia_posicao">%sº</string>
     <string name="format_text_numero_rodada">%sª Rodada</string>
+    <string name="format_text_artilharia_gols">%s gols</string>
+    <string name="format_text_artilharia_gol">%s gol</string>
     <string name="error_retrieve_tabela">Não foi possível baixar tabela</string>
     <string name="error_retrieve_rodada">Não foi possível buscar os dados dos jogos</string>
+    <string name="error_retrieve_artilharia">Não foi possível buscar os artilheiros do campeonato</string>
 
 </resources>
