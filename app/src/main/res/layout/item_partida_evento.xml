@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layoutEvento"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cdvEvento"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="6dp"
+        card_view:cardCornerRadius="3dp"
+        card_view:cardElevation="2sp"
+        card_view:cardUseCompatPadding="true"
+        card_view:contentPadding="4dp">
+
+
+        <LinearLayout
+            android:id="@+id/layoutEventoJogador"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/txtEventoJogador"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:gravity="right"
+                android:layout_weight="1"
+                android:drawablePadding="12dp"
+                android:text="Lionel Messi"
+                android:textColor="@android:color/black">
+
+            </TextView>
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>

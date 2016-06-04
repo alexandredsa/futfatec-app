@@ -22,5 +22,4 @@ public class Evento {
 	public void setJogador(Jogador jogador) {
 		this.jogador = jogador;
 	}
-
 }

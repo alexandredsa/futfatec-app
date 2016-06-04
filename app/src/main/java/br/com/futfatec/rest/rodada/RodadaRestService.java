@@ -6,6 +6,7 @@ import java.util.List;
 
 import br.com.futfatec.content.AppPreferencesData;
 import br.com.futfatec.exception.HttpRestException;
+import br.com.futfatec.model.rodada.Partida;
 import br.com.futfatec.model.rodada.Rodada;
 import br.com.futfatec.rest.AbstractRestService;
 import retrofit.Call;
@@ -43,5 +44,24 @@ public class RodadaRestService extends AbstractRestService {
                 callback.error(new HttpRestException(t.getMessage(), 500));
             }
         });
+    }
+
+    public void getPartida(final OnResponse<Partida> callback, String rodadaId, String horaInicio) {
+        RodadaService rodadaService = (RodadaService) initializeRestService(RodadaService.class);
+        final Call<Partida> call;
+        call = rodadaService.getPartida(rodadaId, horaInicio);
+        call.enqueue(new Callback<Partida>() {
+            @Override
+            public void onResponse(Response<Partida> response, Retrofit retrofit) {
+                Partida partida = response.body();
+                callback.success(partida);
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+                callback.error(new HttpRestException(t.getMessage(), 500));
+            }
+        });
+
     }
 }

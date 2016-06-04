@@ -2,6 +2,7 @@ package br.com.futfatec.rest.rodada;
 
 import java.util.List;
 
+import br.com.futfatec.model.rodada.Partida;
 import br.com.futfatec.model.rodada.Rodada;
 import retrofit.Call;
 import retrofit.http.GET;
@@ -13,4 +14,7 @@ import retrofit.http.Path;
 public interface RodadaService {
     @GET("rodada/{tabelaId}")
     Call<List<Rodada>> get(@Path("tabelaId") String tabelaId);
+
+    @GET("rodada/partida/{rodadaId}/{horaInicio}")
+    Call<Partida> getPartida(@Path("rodadaId") String rodadaId, @Path("horaInicio") String horaInicio);
 }

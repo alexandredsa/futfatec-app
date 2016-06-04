@@ -12,5 +12,8 @@
     <string name="error_retrieve_tabela">Não foi possível baixar tabela</string>
     <string name="error_retrieve_rodada">Não foi possível buscar os dados dos jogos</string>
     <string name="error_retrieve_artilharia">Não foi possível buscar os artilheiros do campeonato</string>
+    <string name="title_activity_partida">PartidaActivity</string>
+    <string name="label_evento">EVENTOS</string>
+    <string name="error_retrieve_partida">Não foi possível buscar os dados deste jogo</string>
 
 </resources>
