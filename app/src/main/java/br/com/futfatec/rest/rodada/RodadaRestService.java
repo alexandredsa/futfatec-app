@@ -84,4 +84,24 @@ public class RodadaRestService extends AbstractRestService {
         });
 
     }
+
+
+    public void postPartida(final OnResponse<Rodada> callback, String rodadaId, Partida partida) {
+        RodadaService rodadaService = (RodadaService) initializeRestService(RodadaService.class);
+        final Call<Rodada> call;
+        call = rodadaService.postPartida(rodadaId, partida);
+        call.enqueue(new Callback<Rodada>() {
+            @Override
+            public void onResponse(Response<Rodada> response, Retrofit retrofit) {
+                Rodada rodada = response.body();
+                callback.success(rodada);
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+                callback.error(new HttpRestException(t.getMessage(), 500));
+            }
+        });
+
+    }
 }

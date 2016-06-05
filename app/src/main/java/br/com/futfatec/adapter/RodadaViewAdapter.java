@@ -13,6 +13,7 @@ import java.util.List;
 
 import br.com.futfatec.R;
 import br.com.futfatec.activity.PartidaActivity;
+import br.com.futfatec.model.rodada.Etapa;
 import br.com.futfatec.model.rodada.Partida;
 import br.com.futfatec.model.rodada.Rodada;
 
@@ -40,9 +41,11 @@ public class RodadaViewAdapter extends RecyclerView.Adapter<RodadaViewAdapter.Ro
         holder.setIsRecyclable(false);
         Rodada rodada = this.jogos.get(position);
 
-        holder.txtRodadaId.setText(String.format(mContext.getString(R.string.format_text_numero_rodada), position + 1));
-
-
+        if(rodada.getEtapa() == Etapa.GRUPO)
+            holder.txtRodadaId.setText(String.format(mContext.getString(R.string.format_text_numero_rodada), position + 1));
+        else {
+            holder.txtRodadaId.setText(rodada.getEtapa().getDescricao());
+        }
         for (Partida partida : rodada.getPartidas()) {
             View v = holder.generateViewPartida(mContext);
             v.setTag(R.id.VIEW_KEY_PARTIDA, partida);

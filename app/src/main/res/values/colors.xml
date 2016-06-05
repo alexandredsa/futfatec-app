@@ -3,6 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#00C853</color>
+    <color name="colorBackgroundFragment">#eeeeee</color>
     <color name="colorClassificacao">#2962FF</color>
     <color name="colorArtilharia">#DD2C00</color>
     <color name="colorRodada">#00C853</color>

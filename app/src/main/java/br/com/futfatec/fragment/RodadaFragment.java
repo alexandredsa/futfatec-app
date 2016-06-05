@@ -47,8 +47,14 @@ public class RodadaFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_rodada, container, false);
 
         progressBar = (ProgressBar) v.findViewById(R.id.progressBar);
-        refreshJogos(v);
+        mRodadaRecyclerView = (RecyclerView) v.findViewById(R.id.rcvRodada);
         return v;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        refreshJogos();
     }
 
     public static RodadaFragment newInstance() {
@@ -68,13 +74,13 @@ public class RodadaFragment extends Fragment {
         this.tabelaId = preferencesData.getTabelaId();
     }
     
-    private void refreshJogos(final View v){
+    private void refreshJogos(){
         progressBar.setVisibility(View.VISIBLE);
         rodadaRestService.get(new AbstractRestService.OnResponse<List<Rodada>>() {
             @Override
             public void success(List<Rodada> jogos) {
                 progressBar.setVisibility(View.GONE);
-                initRecyclerView(jogos, v);
+                initRecyclerView(jogos);
             }
 
             @Override
@@ -85,8 +91,8 @@ public class RodadaFragment extends Fragment {
         }, tabelaId);
     }
 
-    private void initRecyclerView(List<Rodada> jogos, View v) {
-        mRodadaRecyclerView = (RecyclerView) v.findViewById(R.id.rcvRodada);
+    private void initRecyclerView(List<Rodada> jogos) {
+
         mRodadaRecyclerView.setHasFixedSize(true);
         mRodadaLayoutManager = new LinearLayoutManager(getActivity());
         mRodadaRecyclerView.setLayoutManager(mRodadaLayoutManager);

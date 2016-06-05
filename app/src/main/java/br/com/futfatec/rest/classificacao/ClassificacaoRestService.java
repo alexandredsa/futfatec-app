@@ -5,6 +5,7 @@ import android.content.Context;
 import br.com.futfatec.content.AppPreferencesData;
 import br.com.futfatec.exception.HttpRestException;
 import br.com.futfatec.model.classificacao.Tabela;
+import br.com.futfatec.model.classificacao.Time;
 import br.com.futfatec.rest.AbstractRestService;
 import retrofit.Call;
 import retrofit.Callback;
@@ -27,6 +28,26 @@ public class ClassificacaoRestService extends AbstractRestService {
         ClassificacaoService classificacaoService = (ClassificacaoService) initializeRestService(ClassificacaoService.class);
         final Call<Tabela> call;
         call = classificacaoService.get(leagueId);
+        call.enqueue(new Callback<Tabela>() {
+            @Override
+            public void onResponse(Response<Tabela> response, Retrofit retrofit) {
+                Tabela t = response.body();
+                preferencesData.storeClassificacao(t);
+                callback.success(t);
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+                callback.error(new HttpRestException(t.getMessage(), 500));
+            }
+        });
+    }
+
+
+    public void postTime(final OnResponse<Tabela> callback, String idTabela, Time time) {
+        ClassificacaoService classificacaoService = (ClassificacaoService) initializeRestService(ClassificacaoService.class);
+        final Call<Tabela> call;
+        call = classificacaoService.postTime(idTabela, time);
         call.enqueue(new Callback<Tabela>() {
             @Override
             public void onResponse(Response<Tabela> response, Retrofit retrofit) {

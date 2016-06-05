@@ -19,5 +19,6 @@
     <string name="text_label_nome_evento">Tipo:</string>
     <string name="text_label_nome_time_evento">Time:</string>
     <string name="text_label_nome_jogador_evento">Jogador:</string>
+    <string name="error_save_game">Eita, lek. Erro ao encerrar jogo.</string>
 
 </resources>

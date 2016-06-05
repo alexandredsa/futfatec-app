@@ -8,6 +8,7 @@ import com.google.gson.Gson;
 import java.util.List;
 
 import br.com.futfatec.model.classificacao.Tabela;
+import br.com.futfatec.model.classificacao.Time;
 import br.com.futfatec.model.rodada.Rodada;
 
 /**
@@ -34,6 +35,11 @@ public class AppPreferencesData {
     public Tabela retrieveClassificacao() {
         String jsonTabela = prefs.getString(PREFS_KEY_CLASSIFICACAO, null);
         return jsonTabela != null ? gson.fromJson(jsonTabela, Tabela.class) : null;
+    }
+
+    public Time retrieveTime(String nome){
+        Tabela tabela = retrieveClassificacao();
+        return tabela.getTime(nome);
     }
 
     private void storeObject(String key, Object obj) {

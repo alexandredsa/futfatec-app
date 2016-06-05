@@ -23,4 +23,7 @@ public interface RodadaService {
 
     @POST("rodada/update/{rodadaId}/{horaInicio}/evento")
     Call<Rodada> postEvento(@Path("rodadaId") String rodadaId, @Path("horaInicio") String horaInicio, @Body Evento evento);
+
+    @POST("rodada/update/{id}")
+    Call<Rodada> postPartida(@Path("id") String rodadaId, @Body Partida partida);
 }

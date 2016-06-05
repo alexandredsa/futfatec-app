@@ -8,6 +8,8 @@ public class Partida implements Comparable<Partida> {
     private String horaInicio;
     private List<Evento> eventos;
 
+    private Status status;
+
     public Time getTimeA() {
         return timeA;
     }
@@ -38,6 +40,14 @@ public class Partida implements Comparable<Partida> {
 
     public void setEventos(List<Evento> eventos) {
         this.eventos = eventos;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
     @Override

@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
     android:padding="12dp"
+    android:background="@color/colorBackgroundFragment"
+
     tools:context="br.com.futfatec.activity.PartidaActivity">
 
     <ProgressBar
@@ -30,8 +31,8 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_gravity="top"
-            card_view:cardCornerRadius="2dp"
-            card_view:contentPadding="12dp">
+            app:cardCornerRadius="2dp"
+            app:contentPadding="12dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -99,8 +100,8 @@
             android:layout_gravity="top"
             android:layout_marginBottom="2dp"
             android:layout_marginTop="2dp"
-            card_view:cardCornerRadius="2dp"
-            card_view:contentPadding="4dp">
+            app:cardCornerRadius="2dp"
+            app:contentPadding="4dp">
 
             <TextView
                 android:layout_width="match_parent"
@@ -121,7 +122,21 @@
             android:scrollbars="vertical">
 
         </android.support.v7.widget.RecyclerView>
-
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:orientation="horizontal">
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/btnEncerrarJogo"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_margin="6dp"
+            android:onClick="encerrarJogo"
+            android:src="@drawable/ic_apito"
+            android:tint="@android:color/white"
+            app:backgroundTint="@android:color/holo_red_dark"
+            android:layout_gravity="right"/>
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/btnAddEvento"
             android:layout_width="56dp"
@@ -131,7 +146,7 @@
             android:src="@android:drawable/ic_input_add"
             android:tint="@android:color/white"
             android:layout_gravity="right"/>
-
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

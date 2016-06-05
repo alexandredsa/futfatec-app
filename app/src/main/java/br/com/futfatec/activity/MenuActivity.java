@@ -56,11 +56,15 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     private void switchFragment(Fragment fragment){
+        fragmentManager.popBackStackImmediate();
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.fragmentContainer, fragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
+
+    @Override
+    public void onBackPressed() {}
 
     private class FutFatecMenuSelectedListener implements BottomNavigationBar.OnTabSelectedListener {
 
