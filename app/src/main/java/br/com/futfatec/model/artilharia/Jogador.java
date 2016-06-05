@@ -81,4 +81,9 @@ public class Jogador implements Comparable<Jogador> {
 
         return j.getGols() - this.gols;
     }
+
+    @Override
+    public String toString() {
+        return this.nome;
+    }
 }

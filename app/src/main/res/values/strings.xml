@@ -15,5 +15,9 @@
     <string name="title_activity_partida">PartidaActivity</string>
     <string name="label_evento">EVENTOS</string>
     <string name="error_retrieve_partida">Não foi possível buscar os dados deste jogo</string>
+    <string name="title_evento_activity">Novo Evento</string>
+    <string name="text_label_nome_evento">Tipo:</string>
+    <string name="text_label_nome_time_evento">Time:</string>
+    <string name="text_label_nome_jogador_evento">Jogador:</string>
 
 </resources>

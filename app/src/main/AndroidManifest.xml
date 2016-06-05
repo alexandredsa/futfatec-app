@@ -21,7 +21,8 @@
         <activity
             android:name=".activity.PartidaActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activity.EventoActivity"></activity>
     </application>
 
 </manifest>

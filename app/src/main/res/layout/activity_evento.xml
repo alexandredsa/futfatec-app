@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:animateLayoutChanges="true"
+    tools:context="br.com.futfatec.activity.EventoActivity">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cdvLabelEvento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp"
+        card_view:cardCornerRadius="2dp"
+        card_view:contentPadding="4dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/title_evento_activity"
+            android:textColor="@android:color/black"
+            android:textSize="22dp" />
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cdvTipoEvento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:layout_marginTop="12dp"
+        card_view:cardCornerRadius="2dp"
+        card_view:contentPadding="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="6dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text_label_nome_evento"
+                android:paddingBottom="8dp"
+                android:textColor="@android:color/black"
+                android:textSize="18dp" />
+
+            <Spinner
+                android:id="@+id/spnTipoEvento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></Spinner>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cdvTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="12dp"
+        card_view:cardCornerRadius="2dp"
+        card_view:contentPadding="4dp"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="6dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text_label_nome_time_evento"
+                android:paddingBottom="8dp"
+                android:textColor="@android:color/black"
+                android:textSize="18dp" />
+
+           <RadioGroup
+               android:id="@+id/radioGroupTime"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:visibility="visible">
+               <RadioButton
+                   android:id="@+id/rdbTimeA"
+                   android:text="Time A"
+                   android:textSize="18sp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content" />
+
+               <RadioButton
+                   android:id="@+id/rdbTimeB"
+                   android:text="Time B"
+                   android:textSize="18sp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content" />
+           </RadioGroup>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cdvJogador"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="12dp"
+        card_view:cardCornerRadius="2dp"
+        android:visibility="gone"
+        card_view:contentPadding="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="6dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text_label_nome_jogador_evento"
+                android:paddingBottom="8dp"
+                android:textColor="@android:color/black"
+                android:textSize="18dp" />
+
+            <Spinner
+                android:id="@+id/spnJogador"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></Spinner>
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btnSave"
+        android:visibility="gone"
+        android:onClick="salvarEvento"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_margin="6dp"
+        android:src="@drawable/ic_check"
+        android:tint="@android:color/white"
+        android:layout_gravity="bottom|right"/>
+</LinearLayout>

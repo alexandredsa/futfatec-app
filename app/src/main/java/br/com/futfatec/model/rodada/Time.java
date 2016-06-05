@@ -6,45 +6,49 @@ import br.com.futfatec.model.artilharia.Jogador;
 
 
 public class Time {
-	private String nome;
-	private int gols;
-	private List<Jogador> jogadores;
+    private String nome;
+    private int gols;
+    private List<Jogador> jogadores;
 
-	public String getNome() {
-		return nome;
-	}
+    public Time(String nome) {
+        this.nome = nome;
+    }
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    public String getNome() {
+        return nome;
+    }
 
-	public int getGols() {
-		return gols;
-	}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-	public void setGols(int gols) {
-		this.gols = gols;
-	}
+    public int getGols() {
+        return gols;
+    }
 
-	public List<Jogador> getJogadores() {
-		return jogadores;
-	}
+    public void setGols(int gols) {
+        this.gols = gols;
+    }
 
-	public void setJogadores(List<Jogador> jogadores) {
-		this.jogadores = jogadores;
-	}
+    public List<Jogador> getJogadores() {
+        return jogadores;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (!(obj instanceof Time))
-			return false;
+    public void setJogadores(List<Jogador> jogadores) {
+        this.jogadores = jogadores;
+    }
 
-		Time t = (Time) obj;
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Time))
+            return false;
 
-		if (!(t.getNome().equals(this.nome)))
-			return false;
+        Time t = (Time) obj;
 
-		return true;
-	}
+        if (!(t.getNome().equals(this.nome)))
+            return false;
+
+        return true;
+    }
 
 }

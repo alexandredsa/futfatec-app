@@ -41,4 +41,24 @@ public class ArtilhariaRestService extends AbstractRestService{
             }
         });
     }
+
+
+
+    public void getElenco(final AbstractRestService.OnResponse<List<Jogador>> callback, String time) {
+        ArtilhariaService artilhariaService = (ArtilhariaService) initializeRestService(ArtilhariaService.class);
+        final Call<List<Jogador>> call;
+        call = artilhariaService.getElenco(time);
+        call.enqueue(new Callback<List<Jogador>>() {
+            @Override
+            public void onResponse(Response<List<Jogador>> response, Retrofit retrofit) {
+                List<Jogador> jogadores = response.body();
+                callback.success(jogadores);
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+                callback.error(new HttpRestException(t.getMessage(), 500));
+            }
+        });
+    }
 }

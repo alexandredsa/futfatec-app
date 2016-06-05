@@ -13,4 +13,7 @@ import retrofit.http.Path;
 public interface ArtilhariaService {
     @GET("artilharia/{tabelaId}")
     Call<List<Jogador>> get(@Path("tabelaId")String tabelaId);
+
+    @GET("artilharia/elenco/{time}")
+    Call<List<Jogador>> getElenco(@Path("time")String time);
 }

@@ -29,6 +29,9 @@ public class PartidaActivity extends AppCompatActivity {
     private PartidaViewAdapter mPartidaAdapter;
     private ProgressBar progressBar;
     private View layoutPartida;
+    private String rodadaId;
+    private String horaInicio;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,10 +45,14 @@ public class PartidaActivity extends AppCompatActivity {
         txtGolsTimeA = (TextView) findViewById(R.id.txtGolsTimeA);
         txtGolsTimeB = (TextView) findViewById(R.id.txtGolsTimeB);
         Intent i = getIntent();
-        String rodadaId = i.getStringExtra(KEY_RODADA_ID);
-        String horaInicio = i.getStringExtra(KEY_HORA_INICIO_PARTIDA);
-        refreshPartida(rodadaId, horaInicio);
+        rodadaId = i.getStringExtra(KEY_RODADA_ID);
+        horaInicio = i.getStringExtra(KEY_HORA_INICIO_PARTIDA);
+    }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        refreshPartida(rodadaId, horaInicio);
     }
 
     private void refreshPartida(String rodadaId, String horaInicio) {
@@ -83,5 +90,14 @@ public class PartidaActivity extends AppCompatActivity {
         txtTimeB.setText(partida.getTimeB().getNome());
         txtGolsTimeA.setText(String.valueOf(partida.getTimeA().getGols()));
         txtGolsTimeB.setText(String.valueOf(partida.getTimeB().getGols()));
+    }
+
+    public void novoEvento(View view) {
+        Intent i = new Intent(this, EventoActivity.class);
+        i.putExtra(EventoActivity.KEY_TIME_A, txtTimeA.getText().toString());
+        i.putExtra(EventoActivity.KEY_TIME_B, txtTimeB.getText().toString());
+        i.putExtra(EventoActivity.KEY_RODADA_ID, rodadaId);
+        i.putExtra(EventoActivity.KEY_HORA_INICIO, horaInicio);
+        startActivity(i);
     }
 }
