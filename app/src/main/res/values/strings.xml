@@ -15,10 +15,17 @@
     <string name="title_activity_partida">PartidaActivity</string>
     <string name="label_evento">EVENTOS</string>
     <string name="error_retrieve_partida">Não foi possível buscar os dados deste jogo</string>
-    <string name="title_evento_activity">Novo Evento</string>
+    <string name="title_evento_activity">NOVO EVENTO</string>
     <string name="text_label_nome_evento">Tipo:</string>
     <string name="text_label_nome_time_evento">Time:</string>
     <string name="text_label_nome_jogador_evento">Jogador:</string>
     <string name="error_save_game">Eita, lek. Erro ao encerrar jogo.</string>
+    <string name="access_id_label">Palavra-Chave</string>
+    <string name="access_id_descricao">Digite a palavra-chave para acessar a tabela, artilharia, a bagaça toda da sua pelada semi-organizada.</string>
+    <string name="welcome_text">Uélcome to FutFatec!</string>
+    <string name="submit_button_auth">Enviar!</string>
+    <string name="access_id_vazio">Que isso, mano? Vai digitar o negócio não?</string>
+    <string name="error_login">Digita essa bagaça direito, carai!</string>
+    <string name="menu_item_sair">Sair</string>
 
 </resources>

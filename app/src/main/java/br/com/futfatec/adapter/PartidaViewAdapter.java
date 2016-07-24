@@ -1,6 +1,7 @@
 package br.com.futfatec.adapter;
 
 import android.content.Context;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -54,14 +55,16 @@ public class PartidaViewAdapter extends RecyclerView.Adapter<PartidaViewAdapter.
                 break;
         }
 
+        holder.cdvEvento.setCardBackgroundColor(position % 2 == 0 ? mContext.getResources().getColor(R.color.colorBackgroundCdvEventoItem_0) : mContext.getResources().getColor(R.color.colorBackgroundCdvEventoItem_1));
+
     }
 
     private void setDrawable(DrawableSide size, int drawable, PartidaViewHolder holder) {
-        if(size == DrawableSide.LEFT){
+        if (size == DrawableSide.LEFT) {
             holder.txtEventoJogador.setCompoundDrawablesWithIntrinsicBounds(drawable, 0, 0, 0);
             holder.layoutEventoJogador.setGravity(Gravity.RIGHT);
             holder.txtEventoJogador.setGravity(Gravity.LEFT);
-        }else{
+        } else {
             holder.txtEventoJogador.setCompoundDrawablesWithIntrinsicBounds(0, 0, drawable, 0);
             holder.layoutEventoJogador.setGravity(Gravity.LEFT);
             holder.txtEventoJogador.setGravity(Gravity.RIGHT);
@@ -83,11 +86,13 @@ public class PartidaViewAdapter extends RecyclerView.Adapter<PartidaViewAdapter.
     class PartidaViewHolder extends RecyclerView.ViewHolder {
         TextView txtEventoJogador;
         LinearLayout layoutEventoJogador;
+        CardView cdvEvento;
 
         public PartidaViewHolder(View itemView) {
             super(itemView);
             txtEventoJogador = (TextView) itemView.findViewById(R.id.txtEventoJogador);
             layoutEventoJogador = (LinearLayout) itemView.findViewById(R.id.layoutEventoJogador);
+            cdvEvento = (CardView) itemView.findViewById(R.id.cdvEvento);
         }
     }
 }

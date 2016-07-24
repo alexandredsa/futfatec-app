@@ -7,12 +7,22 @@
     <color name="colorClassificacao">#2962FF</color>
     <color name="colorArtilharia">#DD2C00</color>
     <color name="colorRodada">#00C853</color>
-    <color name="colorBackgroundMenu">#00C853</color>
+    <color name="colorBackgroundMenu">#34675C</color>
     <color name="colorBackgroundQualifiedTeam">#4400c853</color>
+    <color name="colorBackgroundScoreboard">#263238</color>
+    <color name="colorBackgroundButton">#30629f</color>
+    <color name="colorBackgroundAuth">#eeeeee</color>
 
-    <color name="colorGolTxt">#00C853</color>
+    <color name="colorGolTxt">#ffd600</color>
+    <color name="colorGolTxtAdapter">#00C853</color>
     <color name="colorGolArtilharia">#01579B</color>
     <color name="colorHoraJogoTxt">#c8303f9f</color>
+    <color name="colorBackgroundEvento">#FF8F00</color>
+
+
+    <color name="colorBackgroundCdvEventoItem_0">#90A4AE</color>
+    <color name="colorBackgroundCdvEventoItem_1">#CFD8DC</color>
+    <color name="partida_status_bar_color">#263238</color>
 
 
 </resources>

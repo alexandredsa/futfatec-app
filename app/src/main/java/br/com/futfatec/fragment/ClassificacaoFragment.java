@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import br.com.futfatec.R;
 import br.com.futfatec.adapter.TabelaGrupoViewAdapter;
+import br.com.futfatec.content.AppPreferencesData;
 import br.com.futfatec.exception.HttpRestException;
 import br.com.futfatec.model.classificacao.Tabela;
 import br.com.futfatec.rest.AbstractRestService;
@@ -27,6 +28,7 @@ public class ClassificacaoFragment extends Fragment {
     private RecyclerView.LayoutManager mTabelaLayoutManager;
     private TabelaGrupoViewAdapter mTabelaAdapter;
     private ProgressBar progressBar;
+    private AppPreferencesData preferencesData;
 
     public ClassificacaoFragment() {
     }
@@ -42,6 +44,7 @@ public class ClassificacaoFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         classificacaoRestService = new ClassificacaoRestService(getActivity());
+        preferencesData = new AppPreferencesData(getActivity());
         if (getArguments() != null) {
         }
 
@@ -61,7 +64,7 @@ public class ClassificacaoFragment extends Fragment {
                 progressBar.setVisibility(View.GONE);
                 Toast.makeText(getActivity(), getString(R.string.error_retrieve_tabela), Toast.LENGTH_LONG).show();
             }
-        }, "DIGAO_CHAMPIONS_LEAGUE_2016");
+        }, preferencesData.getLeagueId());
     }
 
     @Override

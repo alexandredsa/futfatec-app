@@ -37,9 +37,8 @@ public class ArtilhariaViewAdapter extends RecyclerView.Adapter<ArtilhariaViewAd
     @Override
     public void onBindViewHolder(ArtilhariaViewHolder holder, int position) {
         Jogador jogador = jogadores.get(position);
-        compareColocacaoJogadorAnterior(jogadores, position);
-
-        holder.txtColocacao.setText(String.format(mContext.getString(R.string.format_text_artilharia_posicao),colocacao));
+        setJogadorPosicao(jogadores, position);
+        holder.txtColocacao.setText(String.format(mContext.getString(R.string.format_text_artilharia_posicao), jogador.getPosicao()));
         holder.txtJogador.setText(jogador.getNome());
         holder.txtGols.setText(String.format(mContext.getString(
                 jogador.getGols() > 1 ? R.string.format_text_artilharia_gols : R.string.format_text_artilharia_gol)
@@ -49,12 +48,14 @@ public class ArtilhariaViewAdapter extends RecyclerView.Adapter<ArtilhariaViewAd
 
     }
 
-    private void compareColocacaoJogadorAnterior(List<Jogador> jogadores, int position) {
-        if (position == 0)
+    private void setJogadorPosicao(List<Jogador> jogadores, int position) {
+        if (jogadores.get(position).getPosicao() > 0)
             return;
 
-        if (jogadores.get(position).getGols() < jogadores.get(position - 1).getGols())
+        if (position > 0 && jogadores.get(position).getGols() < jogadores.get(position - 1).getGols())
             ++colocacao;
+
+        jogadores.get(position).setPosicao(colocacao);
     }
 
     @Override

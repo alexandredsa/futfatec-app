@@ -1,15 +1,20 @@
 package br.com.futfatec.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 
 import br.com.futfatec.R;
+import br.com.futfatec.content.AppPreferencesData;
 import br.com.futfatec.fragment.ArtilhariaFragment;
 import br.com.futfatec.fragment.ClassificacaoFragment;
 import br.com.futfatec.fragment.RodadaFragment;
@@ -35,6 +40,28 @@ public class MenuActivity extends AppCompatActivity {
         switchFragment(ClassificacaoFragment.newInstance());
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.app_menu, menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()){
+            case R.id.sair:
+                new AppPreferencesData(this).invalidateSession();
+                startActivity(new Intent(this, AuthActivity.class));
+                finish();
+                break;
+        }
+
+        return true;
+    }
+
     private void initMenu() {
         BottomNavigationItem tabelaItem = new BottomNavigationItem(R.drawable.ic_menu_item_tabela, getResources().getString(R.string.menu_item_tabela));
         BottomNavigationItem artilhariaItem = new BottomNavigationItem(R.drawable.ic_menu_item_chuteira, getResources().getString(R.string.menu_item_artilharia));
@@ -53,6 +80,7 @@ public class MenuActivity extends AppCompatActivity {
         bottomNavigationBar.setMode(BottomNavigationBar.MODE_SHIFTING);
 
         bottomNavigationBar.setTabSelectedListener(futFatecMenuListener);
+        bottomNavigationBar.setBarBackgroundColor(R.color.colorBackgroundMenu);
     }
 
     private void switchFragment(Fragment fragment){

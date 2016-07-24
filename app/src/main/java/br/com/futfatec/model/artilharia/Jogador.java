@@ -11,6 +11,8 @@ public class Jogador implements Comparable<Jogador> {
 
     private String idTabela;
 
+    private transient int posicao;
+
     public String getId() {
         return id;
     }
@@ -85,5 +87,13 @@ public class Jogador implements Comparable<Jogador> {
     @Override
     public String toString() {
         return this.nome;
+    }
+
+    public int getPosicao() {
+        return posicao;
+    }
+
+    public void setPosicao(int posicao) {
+        this.posicao = posicao;
     }
 }

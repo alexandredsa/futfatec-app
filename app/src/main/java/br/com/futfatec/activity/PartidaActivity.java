@@ -63,6 +63,13 @@ public class PartidaActivity extends AppCompatActivity {
         rodadaRestService = new RodadaRestService(this);
         classificacaoRestService = new ClassificacaoRestService(this);
 
+        getSupportActionBar().hide();
+
+        if(!preferencesData.isAdmin()){
+            btnFinalizar.setVisibility(View.GONE);
+            btnAddEvento.setVisibility(View.GONE);
+        }
+
         Intent i = getIntent();
         rodadaId = i.getStringExtra(KEY_RODADA_ID);
         etapa = i.getStringExtra(KEY_ETAPA);
